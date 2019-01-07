@@ -33,11 +33,11 @@ final class Init
 		}
 	}
 
-	/**
-	 * Initialize the class
-	 * @param  class $class    class from the services array
-	 * @return class instance  new instance of the class
-	 */
+    /**
+     * Initialize the class
+     * @param $class
+     * @return mixed
+     */
 	private static function instantiate( $class )
 	{
 		$service = new $class();
