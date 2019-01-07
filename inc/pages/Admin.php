@@ -44,7 +44,7 @@ class Admin extends BaseController
 				'menu_title' => 'Omoi',
 				'capability' => 'manage_options', 
 				'menu_slug' => 'omoi',
-				'callback' => array( $this->callbacks, 'adminDashboard' ), 
+				'callback' => array( $this->callbacks, 'adminDashboard' ),
 				'icon_url' => $this->plugin_url . 'assets/icons/icon-small.png',
 				'position' => 110
 			)
