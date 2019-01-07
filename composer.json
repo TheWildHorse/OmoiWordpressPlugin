@@ -1,0 +1,17 @@
+{
+    "name": "ir/omoi",
+    "description": "Automate your customer messaging.",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "ir",
+            "email": "igor@rinkovec.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {"inc\\": "./inc"}
+    }
+}
