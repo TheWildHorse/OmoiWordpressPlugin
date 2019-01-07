@@ -41,13 +41,6 @@ class CustomEndpoint extends WP_REST_Controller
             ),
         ));
 
-        register_rest_route($namespace, '/test', array(
-            array(
-                'methods' => WP_REST_Server::ALLMETHODS,
-                'callback' => array($this, 'test'),
-            ),
-        ));
-
         update_option('update_script_url', home_url() . "/wp-json/omoi/v1/script/update");
     }
 
@@ -79,8 +72,6 @@ class CustomEndpoint extends WP_REST_Controller
         }
 
         $scriptUrl = $omoiHost . $bothook . "?companyId=" . $companyId;
-        wp_enqueue_script('main-js', $scriptUrl, array(), '1.0');
-        wp_add_inline_script('main-js', 'alert("hello world");');
 
         wp_redirect($wpHost . $wpUrl);
         exit();
@@ -96,9 +87,5 @@ class CustomEndpoint extends WP_REST_Controller
             "&wpUrl=" . home_url() . "/wp-admin/admin.php?page=omoi" .
             "&company_id=" . get_option('company_id');
         wp_redirect(get_option('omoi_host') . $omoiUrl . $args);
-    }
-
-    public function test(){
-        update_option('widget_title', "");
     }
 }

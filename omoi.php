@@ -69,7 +69,9 @@ add_action('admin_notices', 'plugin_connection_with_omoi_success_notice');
 
 add_action('admin_notices', 'plugin_no_knowledgebase_notice');
 
-add_action( 'admin_post_contact_form', 'update_script_tag' );
+add_action('admin_post_contact_form', 'update_script_tag');
+
+add_action('wp_head', 'add_js_to_head_frontend');
 
 function plugin_activation_notice()
 {
@@ -113,4 +115,13 @@ function update_script_tag()
 {
     $api = new \inc\api\CustomEndpoint;
     $api->update_script_tag($_POST['widget_title']);
+}
+
+function add_js_to_head_frontend()
+{
+    if(get_option('company_id') != 0)
+    {
+        $src = get_option('omoi_host') . get_option('omoi_bothook') . "?companyId=". get_option('company_id') ;
+        echo '<script type="text/javascript" src="' . $src .'"></script>';
+    }
 }
